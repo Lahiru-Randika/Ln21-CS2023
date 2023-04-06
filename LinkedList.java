@@ -51,21 +51,55 @@ public class LinkedList {
         }
     }
 
+
     public int size() {
         return size;
     }
-
-    public static void main(String[] args) {
-        LinkedList newstack = new LinkedList();
-        newstack.push(1);
-        newstack.push(2);
-        newstack.push(3);
-        newstack.push(4);
-        newstack.push(5);
-        System.out.println("Size of stack is " + newstack.size());
-        System.out.println("Top element of stack is " + newstack.peek());
-        newstack.pop();
-        System.out.println("Top element of stack after pop is " + newstack.peek());
-        System.out.println("Is the stack empty? : "+newstack.isEmpty());
+    public void display() {
+        if (top == null) {
+            System.out.println("Stack is empty.");
+            return;
+        }
+        System.out.print("Current Stack: ");
+        Node current = top;
+        while (current != null) {
+            System.out.print(current.value + " ");
+            current = current.next;
+        }
+        System.out.println();
     }
-}
+
+
+        public static void main(String[] args) {
+            LinkedList list1 = new LinkedList();
+            long start1 = System.nanoTime();
+            list1.push(8);
+            list1.push(10);
+            list1.push(5);
+            list1.push(11);
+            list1.push(15);
+            list1.push(23);
+            list1.push(6);
+            list1.push(18);
+            list1.push(20);
+            list1.push(17);
+            list1.display();
+
+            System.out.println(list1.pop());
+            System.out.println(list1.pop());
+            System.out.println(list1.pop());
+            System.out.println(list1.pop());
+            System.out.println(list1.pop());
+
+            list1.display();
+            list1.push(4);
+            list1.push(30);
+            list1.push(3);
+            list1.push(1);
+
+            list1.display();
+            long stop1 = System.nanoTime();
+            long duration1 = (stop1 - start1);
+            System.out.println("Running Time: " + duration1 + " nanoseconds");
+        }
+    }
